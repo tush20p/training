@@ -7,7 +7,7 @@
  *	loses the game.
  */
 
-#include"../inc/header.h"
+#include"../inc/2_matchstik.h"
 
 int main()
 {
