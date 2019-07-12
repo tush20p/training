@@ -19,73 +19,63 @@
  *	lowercase letters should be allowed for the menu choices. 
  */
 
-#include"header.h"
-#define size 100
-
-void vowels(char *);
-void consonants(char *);
-void uppercase(char *);
-void lowercase(char *);
-void currentstring(char *);
-void newstring(char *);
-
+#include"../inc/1_string.h"
 void main()
 {
-	char p[size];
+	char string[size];
 	char option;
 	int i,c=0,m=0,n=0,t=0;
 	printf("\n\n\tEnter the string:\n\n\t");
-	scanf("%[^\n]",p);
+	scanf("%[^\n]",string);
 	printf("_________________________________\n");
 	printf("\nstring name:\n");
-	printf("\t%s\n\n",p);
+	printf("\t%s\n\n",string);
 
 	printf("__________________________________\n");
 
 	do
 	{
-		//		system("clear");
-		printf("\n\nEntered String: %s\n\n",p);
+		printf("\n\nEntered String: %s\n\n",string);
 		printf("\t\n\nenter the option \n\t1)vowels \n\t2)consonants \n\t3)uppercase \n\t4)lowercase \n\t5)current string \n\t6)enter new string \n\t7)exit...\n");
 		scanf(" %c",&option);
-		//m=0;
-		//		n=0;
 		switch(option)
 		{
-			case '1':vowels(p);
+			case '1':vowels(string);
 				 break;
 
 
-			case '2':consonants(p);
+			case '2':consonants(string);
 				 break;
 
-			case '3':uppercase(p);
+			case '3':uppercase(string);
 				 break;
 
 
-			case '4':lowercase(p);
+			case '4':lowercase(string);
 				 break;
 
-			case '5':currentstring(p);
+			case '5':currentstring(string);
 				 break;
 
-			case '6':newstring(p);
+			case '6':newstring(string);
 				 break;
 
-			case '7':option='8';
-
-
+			case '7':
+				 return;
+			default :printf("Wrong option\n");
+				 break;
 		}
-		//		sleep(3);
-		if(option=='8')
-			break;
 	}while(1);
 }
 
 void vowels(char *s)
 {
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 	int i,m=0;
-
 	printf("total number of vowels counts in the string-\n");
 
 	for(i=0;s[i];i++)
@@ -104,6 +94,11 @@ void vowels(char *s)
 void consonants(char *s)
 {
 
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 	int i,n=0;
 	printf("total number of consonants counts in the string-\n");
 
@@ -120,6 +115,11 @@ void consonants(char *s)
 
 void uppercase(char *s)
 {
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 
 	int i;
 	printf("convert string into uppercase-\n");
@@ -138,6 +138,11 @@ void uppercase(char *s)
 
 void lowercase(char *s)
 {
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 
 	int i;
 	printf("convert the string into lowercase-\n");
@@ -156,6 +161,11 @@ void lowercase(char *s)
 
 void currentstring(char *s)
 {
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 
 	printf("current string-\n");
 	printf("%s\n",s);
@@ -165,6 +175,11 @@ void currentstring(char *s)
 
 void newstring(char *s)
 {
+	if(s==NULL)
+	{
+		printf("wrong ip\n");
+		return;
+	}
 
 	bzero(s,sizeof(s));
 	printf("Enter new string-\n");
