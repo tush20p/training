@@ -8,10 +8,9 @@
  */
 
 #include"../inc/2_matchstik.h"
-
-int main()
+void main()
 {
-	int matchstick=21;
+	int matchstick=NUMBER_OF_MATCHSTICKS;
 	int comp,user;
 	while(matchstick>=1)
 	{
@@ -20,33 +19,48 @@ int main()
 		printf("\n---------------------------------------\n\n");
 		if(matchstick==1)
 		{
-			printf("computer won the game...\n");
+			printf("remaining matchstick=%d\n",matchstick);
+			printf("have to pick 1-4....\n");
+		
+			printf("\t user turn:");
+			scanf("%d",&user);
+			printf("user=%d",user);
+
+		printf("\n---------------------------------------\n");
+			printf("\ncomputer won the game...\n");
+		printf("\n---------------------------------------\n\n");
 			break;
 		}
 
-		printf("remaining matchstick=%d\n",matchstick);
-		printf("\n---------------------------------------\n");
-l1:printf("have to pick 1-4....\n");
-   printf("\t user turn:");
-   scanf("%d",&user);
-   printf("user=%d",user);
-   printf("\n---------------------------------------");
-   if(user<=0 ||user>4)
-   {
-	   printf("\nWrong pick no...\n");
-	   goto l1;
-   }
+		while(1)
+		{
+			printf("remaining matchstick=%d\n",matchstick);
 
-   comp=5-user;
+			printf("\n---------------------------------------\n");
+		
+			printf("have to pick 1-4....\n");
+		
+			printf("\t user turn:");
+			scanf("%d",&user);
+			printf("user=%d",user);
+			printf("\n---------------------------------------");
+		
+			if(user<=0 ||user>4)
+			{
+				printf("\nWrong pick no...\n");
+				continue;
+			}
 
-   printf("\n\t computer turn:");
-   printf("\n");
-   printf("copmuter take =%d\n",comp);
+			comp=5-user;
 
-   matchstick=matchstick-user-comp;
-   sleep(2);
-   continue;
-	
+			printf("\n\t computer turn:");
+			printf("\n");
+			printf("copmuter take =%d\n",comp);
+
+			sleep(2);
+			matchstick=matchstick-user-comp;
+			break;
+
+		}
 	}
-	matchstick--;
 }
