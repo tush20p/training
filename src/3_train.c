@@ -13,12 +13,11 @@ int main()
 	int i;
 	st train[2];
 	
-	printf("\n...............................\n\n");
-	printf("Enter the train name and time\n");
-	printf("\n...............................\n\n");
 	
 	for(i=0;i<2;i++)
 	{
+	printf("Enter the train name and time\n");
+	scanf("%s",train[i].name);
 		printf("Enter hours 'hh'     :\t");
 		scanf("%d",&train[i].hh);
 
@@ -53,8 +52,8 @@ int main()
 					train[i].hh = 0;
 				}
 
-				printf("Train timimg : \t");
-				printf("%02d:%02d:%02d", train[i].hh, train[i].mm, train[i].ss);
+				printf("train name:\t Train timimg : \t");
+				printf("%s- %02d:%02d:%02d",train[i].name,train[i].hh, train[i].mm, train[i].ss);
 
 				printf("\n\n");
 
