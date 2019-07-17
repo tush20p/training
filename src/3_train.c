@@ -1,7 +1,7 @@
 /* Write a program to accepts name and arrival time of 5 trains and display the name with railway time format (2PM is written as 14:00). The information must be entered by the user. */
 
+//#include"../inc/3_train.h"
 #include"../inc/3_train.h"
-
 int main()
 {
 	int i,ret=0;
@@ -22,7 +22,7 @@ l1:	printf("Enter hours 'hh'      :");
 		goto l1;	
 	}
 
-	else if((train[i].hh<1 || train[i].hh >12))
+	else if((train[i].hh<0 || train[i].hh >12))
 	{
 		printf("Wrong input\n");
 		goto l1;	
@@ -81,15 +81,15 @@ l3:	printf("Enter Seconds 'ss'    :");
 	scanf("%s",train[i].s);
 
 
-	if((strcmp(train[i].s,"PM") == 0) || (strcmp(train[i].s,"pm") == 0) 
+	if((strcmp(train[i].s,"PM") == 0) || (strcmp(train[i].s,"pm") == 0 ||(strcmp(train[i].s,"P") == 0) || (strcmp(train[i].s,"p") == 0)) 
 			&& (train[i].hh != 0) && (train[i].hh != 12))
 	{
 		train[i].hh = train[i].hh + 12;
 	}
 
-	if((strcmp(train[i].s,"AM") == 0) || (strcmp(train[i].s,"am") == 0) && (train[i].hh == 12))
+	if((strcmp(train[i].s,"AM") == 0) || (strcmp(train[i].s,"am") == 0) && (train[i].hh == 12) || (strcmp(train[i].s,"A") == 0) || (strcmp(train[i].s,"a") == 0))
 	{
-		train[i].hh = 0;
+		train[i].hh = train[i].hh;
 	}
 	printf("\n.........................................................\n");
 	printf("\tTrain Name:%s       |\t Train time: %02d:%02d:%02d",train[i].name,train[i].hh, train[i].mm, train[i].ss);
