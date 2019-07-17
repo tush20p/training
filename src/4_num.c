@@ -4,13 +4,17 @@
 void main()
 {
 	int even=0,odd=0,num=1;
-
+printf("\n..............................................\n\n");
+printf("Enter even num will get sum of the even number\n");
+printf("Enter odd num will get largest odd number\n");
+printf("Enter 0 for output\n");
+printf("\n..............................................\n\n");
 	while(num!=0)
 	{
 		printf("Enter the number\n");
 		scanf("%d",&num);
+printf("\n");
 
-		printf("num=%d\n",num);
 		if(num<0)
 		{
 			printf("Invalid input\n");
@@ -18,6 +22,14 @@ void main()
 		}
 
 
+		if(num%2==0)
+		{
+			printf("||......even num-%d...... ||\n\n",num);
+		}
+		if(num%2!=0)
+		{
+			printf("||......odd num-%d....... ||\n\n",num);
+		}
 		if(num%2==0)
 		{
 			even=even+num;
@@ -30,10 +42,13 @@ void main()
 			{
 				odd=num;
 			continue;
+printf("||......odd num-%d ||\n",num);
 
 			}
 		}
 	}
-	printf("sum of even = %d \n largest of odd = %d\n",even,odd);
+printf("\n.........................................\n\n");
+	printf("sum of even    = %d \nlargest odd no = %d\n",even,odd);
+printf("\n.........................................\n");
 
 }
