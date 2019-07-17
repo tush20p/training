@@ -11,7 +11,7 @@
 void main()
 {
 	int matchstick=NUMBER_OF_MATCHSTICKS;
-	int comp,user;
+	int comp,user,r;
 	while(matchstick>=1)
 	{
 		system("clear");
@@ -40,11 +40,18 @@ void main()
 		
 			printf("have to pick 1-4....\n");
 		
-			printf("\t user turn:");
-			scanf("%d",&user);
+			l1:printf("\t user turn:");
+			r=scanf("%d",&user);
 			printf("user=%d",user);
-			printf("\n---------------------------------------");
-		
+			printf("\n---------------------------------------\n");
+			
+			if(r==0)
+			{
+			printf("wrong input\n");
+			scanf("%*s");
+			goto l1;
+			}
+
 			if(user<=0 ||user>4)
 			{
 				printf("\nWrong pick no...\n");
