@@ -6,7 +6,7 @@ void main()
 {
 	al s[10];
 	char a[11],string[100],stime[20],c,x;
-	int i,j,k,fd[2];
+	int i,j,k,fd[2],hh,mm,ss,ret=0;
 	if(pipe(fd)==-1)
 	{
 		perror("pipe");
@@ -18,7 +18,7 @@ void main()
 		for(i=0;i<=10;i++)
 		{
 			read(fd[0],s[i].notification,100);
-			read(fd[0],s[i].time,10);
+			read(fd[0],s[i].time,100);
 			read(fd[0],&x,1);
 
 			if(x=='n'||x=='N')
@@ -40,6 +40,7 @@ void main()
 					printf("Message:%s   Time:%s",s[j].notification,s[j].time);
 					printf("\n..........................................\n");    
 					k--;
+					break;
 
 				}
 			}
@@ -56,18 +57,100 @@ void main()
 		{                      
 			printf("\nenter the notification : ");
 			scanf(" %[^\n]s",string);
-
 			write(fd[1],string,strlen(string)+1);
-			printf("\nSet the alarm time HH:MM:SS:-");
-			scanf(" %s",stime);
 
-			write(fd[1],stime,strlen(stime)+1);
-			printf("\nalarm set......");
+			printf("\nSet the alarm time HH:MM:SS:-\n");
+			printf(".........................................\n");
 
-			printf("\ndo you want to add new alarm y/n?");
-			scanf(" %c",&c);
+l1:     printf("Enter hours 'hh'      :");
+	ret=scanf("%d",&hh);
 
-			write(fd[1],&c,1);
+	if(ret==0)
+	{
+		printf("Wrong input\n");
+		scanf("%*s");
+		goto l1;
+	}
+
+	else if((hh<0 || hh >24))
+	{
+		printf("Wrong input\n");
+		goto l1;
+	}
+
+	if((hh != 0) && (hh != 24))
+	{
+		hh = hh;
+	}
+
+
+l2:     printf("Enter minute 'mm'     :");
+	ret=scanf("%d",&mm);
+
+	if(ret==0)
+	{
+		printf("Wrong input\n");
+		scanf("%*s");
+		goto l2;
+	}
+
+	else if((mm<0 || mm >59))
+	{
+		printf("Wrong input\n");
+		goto l2;
+	}
+
+	if(mm <= 59)
+	{
+		if((mm !=0 ) && (mm !=60 ))
+		{
+			mm = mm;
+		}
+	}
+l3:     printf("Enter Seconds 'ss'    :");
+	ret=scanf("%d",&ss);
+
+	if(ret==0)
+	{
+		printf("Wrong input\n");
+		scanf("%*s");
+		goto l3;
+	}
+
+	else if((ss<0 || ss >59))
+	{
+		printf("Wrong input\n");
+		goto l3;
+	}
+
+	if(ss <= 59)
+	{
+		if((ss !=0 ) && (ss !=59 ))
+		{
+			ss = ss;
+		}
+	}
+
+	sprintf(stime,"%02d:%02d:%02d",hh,mm,ss);
+
+	printf(".........................................\n\n");
+
+	printf("time=%s\n",stime);
+	write(fd[1],stime,strlen(stime)+1);
+
+	printf("\nalarm set");
+	printf("\n\n.........................................\n");
+
+l4:printf("\ndo you want to add new alarm y/n?");
+   scanf(" %c",&c);
+   if(!(c=='y' || c=='Y' || c=='n' || c=='N'))
+   {
+	   printf("wrong input\n");
+	   goto l4;
+
+   }
+   write(fd[1],&c,1);
+
 		}while(c=='y'||c=='Y');
 
 	}               
