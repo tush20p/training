@@ -4,41 +4,34 @@
 
 int main() 
 { 
-	input();
-	result=string_word(str,word,word1);
-	output(result);
-} 
-void input(void)
-{
-
 	word1=malloc(sizeof(char)*20);
 
 	if(word1==0)
 	{
 		printf("malloc failed\n");
-		return ;
+		return 0;
 	}
 
-	printf("\n\n\t\tEnter the string\n\n");
+	printf("\n\nEnter the string\n\n");
 	scanf("%[^\n]s",str);
 	printf("......................................\n");
 	printf("\nstr=%s\n\n",str);
 
 	printf("......................................\n");
-        
-while(1)
-{
-	printf("\t\tEnter the old string\n");
-	scanf(" %[^\n]s",word);
-	printf("c=%s\n",word);
 
-	if(strstr(str,word)!=NULL)
+	while(1)
 	{
-		break;
-	}
-		printf("\tword not present\n \tEnter again\n\n");
+		printf("Enter the old string\n");
+		scanf(" %[^\n]s",word);
+		printf("c=%s\n",word);
 
-}
+		if(strstr(str,word)!=NULL)
+		{
+			break;
+		}
+		printf("word not present\n \tEnter again\n\n");
+
+	}
 	printf("......................................\n");
 
 	printf("\t\tEnter the new string\n");
@@ -47,11 +40,17 @@ while(1)
 
 	printf("......................................\n");
 
+	result=string_word(str,word,word1);
+	printf("Output\n\n");
+	printf("Old string: %s\n\n", str); 
+	printf("New String: %s\n", result); 
+	printf("......................................\n");
+
 
 }
 char *string_word(const char *string, const char *old,const char *new) 
 { 
-	char *result; 
+	char *result=0; 
 	int i, count = 0; 
 	int new_len = strlen(new); 
 	int old_len = strlen(old); 
@@ -89,10 +88,3 @@ char *string_word(const char *string, const char *old,const char *new)
 	return result; 
 } 
 
-void output(char *op)
-{
-	printf("\t\tOutput\n\n");
-	printf("Old string: %s\n\n", str); 
-	printf("New String: %s\n", op); 
-	printf("......................................\n");
-} 
