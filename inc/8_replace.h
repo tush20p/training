@@ -7,6 +7,7 @@
         char str[SIZE];
         char word[MAX],*word1;
         char *result = NULL;
+/* Improper indentation */
 char *string_word(const char *, const char *,const char *);
 
 

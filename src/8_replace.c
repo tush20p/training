@@ -1,9 +1,13 @@
 /*Write a Program to find the paricular "word_to_search" in the string and if found replace it by a user defined word. Use dyanmic memory allocation to take in user defined word.*/
 
+/* TODO: Document the code properly */
+/* TODO: Since you have a makfile dont provide the full path of header. Just name the header. */
 #include"../inc/8_replace.h"
 
 int main() 
 { 
+	/* TODO: Return if malloc fails */
+	/* TODO: Typecast malloc */
 	word1=malloc(sizeof(char)*20);
 
 	if(word1==0)
@@ -21,6 +25,7 @@ int main()
 
 	while(1)
 	{
+		/* TODO: Replace this with "Enter string to search" */
 		printf("Enter the old string\n");
 		scanf(" %[^\n]s",word);
 		printf("c=%s\n",word);
@@ -34,6 +39,7 @@ int main()
 	}
 	printf("......................................\n");
 
+	/* TODO: Replace this with "Enter string to replace" */
 	printf("\t\tEnter the new string\n");
 	scanf(" %[^\n]s",word1);
 	printf("d=%s\n",word1);
@@ -45,6 +51,8 @@ int main()
 	printf("Old string: %s\n\n", str); 
 	printf("New String: %s\n", result); 
 	printf("......................................\n");
+
+	/*TODO: Free up all the allocated memory */
 
 
 }
@@ -62,13 +70,15 @@ char *string_word(const char *string, const char *old,const char *new)
 	}
 	for(i=0;string[i];i++) 
 	{ 
-		if (strstr(&string[i],old)==&string[i]) 
+		if (strstr(&string[i],old)==&string[i])
 		{
 			count++; 
 			i =i+old_len - 1; 
 		} 
 	} 
 
+	/* TODO: Write why did you do this */
+	/* TODO: Return if malloc fails */
 	result = (char *)malloc(i + count * (new_len - old_len) + 1); 
 
 	i = 0; 
