@@ -1,7 +1,12 @@
 /*write function to add two 2D arrays of variable dimension (dimension to be taken from user). Function should catch 1st array using pointer to array and 2nd using array of pointers.
   Print the resultant array using user defined printf() function which catches 2D array using double pointer. */
 
+/* TODO: Include only header name and not the whole path. */
 #include"../inc/9_sum.h"
+
+/* TODO: The program takes in 0 and 0 as a value of matrix rows and columns. This is wrong. Correct it..*/
+/* TODO: The program takes in negative value of matrix rows and columns. This is wrong. Correct it. */
+/* Please eliminate goto */
 
 int main()
 {
