@@ -1,7 +1,7 @@
 /* Write a program for an automatic SIM card details verification. The database will contain name , ID proof, sim ID no, address etc.
  * Not more than 3 SIM card should be given on one ID proof.*/
 
-#include"../inc/10_sim.h"
+#include"10_sim.h"
 
 void main()
 {
@@ -155,14 +155,14 @@ l2:printf("\t\tEnter the your mobile num\n\t");
 	   if((s[i].sim[j]==mob))
 	   {
 		   m=strlen(s[i].address);
-			printf("\t\t.................................\n");
-			printf("\t\t\t   Matched\n");
-			printf("\t\t.................................\n\n");
+		   printf("\t\t.................................\n");
+		   printf("\t\t\t   Matched\n");
+		   printf("\t\t.................................\n\n");
 
-			printf("\t\t -----------------------------------------\n");
+		   printf("\t\t -----------------------------------------\n");
 		   printf("\t\t|\t  NAME \t\t-%s \n \t\t|\t  ID\t\t-%s \n \t\t|\t  SIM 1\t\t-%ld \n \t\t|\t  SIM 2\t\t-%ld \n \t\t|\t  SIM 3\t\t-%ld \n \t\t|\t ADDRESS\t-%s \n",s[i].name,s[i].id,s[i].sim[0],s[i].sim[1],s[i].sim[2],s[i].address);
-			printf("\t\t -----------------------------------------\n");
-return;
+		   printf("\t\t -----------------------------------------\n");
+		   return;
 	   }
 	   if(j==2 && (s[i].sim[j]!=mob))
 	   {
