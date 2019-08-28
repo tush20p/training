@@ -2,31 +2,6 @@
 Also make a custom menu. This menu must display the names of all the players currently present in the database. The menu must also give the player the ability to view, modify and delete the information of the players.*/
 
 #include"17_cricket.h"
-typedef struct cricket
-{
-		char name[100];
-                int jersey;
-		int run;
-		int catch;
-		int wickets;
-		int six;
-		int four;
-		struct cricket *next;
-}cricket;
-FILE *fp;
-int file(cricket **,const char *);
-int filesave(cricket *,char *);
-int delete(cricket **);
-int linklist(cricket *,cricket **);
-int database(cricket **);
-int name(cricket **);
-int ID(cricket **);
-int print(cricket *);
-int modify(cricket **);
-int datachange(cricket **);
-int moname(cricket **);
-int moID(cricket **);
-int r,count=0;
 int main()
 {
 
